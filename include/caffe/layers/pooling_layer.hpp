@@ -15,7 +15,7 @@ namespace caffe {
  * TODO(dox): thorough documentation for Forward, Backward, and proto params.
  */
 template <typename Dtype>
-// PoolingLayer继承于Layer, 含有虚函数
+// PoolingLayer继承于Layer
 class PoolingLayer : public Layer<Dtype> {
  public:
   explicit PoolingLayer(const LayerParameter& param)
@@ -28,10 +28,11 @@ class PoolingLayer : public Layer<Dtype> {
   virtual inline const char* type() const { return "Pooling"; }
   // 返回输入层的blob数量
   virtual inline int ExactNumBottomBlobs() const { return 1; }
-  // 返回输出层的最多blob数量
+  // 返回输出层的最少blob数量
   virtual inline int MinTopBlobs() const { return 1; }
   // MAX POOL layers can output an extra top blob for the mask;
   // others can only output the pooled inputs.
+  // 输出层的blob个数可能为2,第二个blob用于记录索引位置，使用mask表示
   virtual inline int MaxTopBlobs() const {
     // pooling_param(), pool()参见build/src/caffe/proto/caffe.pb.h line14807
     return (this->layer_param_.pooling_param().pool() ==
