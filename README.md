@@ -4,3 +4,4 @@
   * Activation Function
     * sigmoid_layer
     * relu_layer
+  * batch_norm_layer
