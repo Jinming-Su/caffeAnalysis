@@ -1,0 +1,24 @@
+# ExampleAddressBook.prototxt
+person {
+  name: "Alex K"
+  id: 1
+  email: "kongming.liang@abc.com"
+  phone {
+    number: "+86xxxxxxxxxxx"
+    type: MOBILE
+  }
+}
+
+person {
+  name: "Andrew D"
+  id: 2
+  email: "xuesong.deng@vipl.ict.ac.cn"
+  phone {
+    number: "+86xxxxxxxxxxx"
+    type: MOBILE
+  }
+  phone {
+    number: "+86xxxxxxxxxxx"
+    type: WORK
+  }
+}
